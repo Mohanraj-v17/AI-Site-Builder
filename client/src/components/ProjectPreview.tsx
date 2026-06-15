@@ -43,10 +43,10 @@ const ProjectPreview = forwardRef<ProjectPreviewRef, ProjectPreviewProps>
     }
 
     const resolutions = {
-        phone: 'w-[412px]',
-        tablet: 'w-[768px]',
-        desktop: 'w-full'
-    }
+    phone: 'w-full sm:w-[412px]',
+    tablet: 'w-full sm:w-[768px]',
+    desktop: 'w-full'
+}
 
     useImperativeHandle(ref, ()=>({
         getCode: () => {
@@ -89,7 +89,11 @@ const ProjectPreview = forwardRef<ProjectPreviewRef, ProjectPreviewProps>
     <div className='relative h-full bg-gray-900 flex-1 rounded-xl overflow-hidden max-sm:ml-2'>
         {project.current_code ? (
             <>
-            <iframe ref={iframeRef} srcDoc={injectPreview(project.current_code)} className={`h-full max-sm:w-full ${resolutions[device]} mx-auto transition-all`}/>
+           <iframe
+  ref={iframeRef}
+  srcDoc={injectPreview(project.current_code)}
+  className={`h-full ${resolutions[device]} mx-auto transition-all`}
+/>
             {showEditorPanel && selectedElement && (
                 <EditorPanel selectedElement={selectedElement}
                 onUpdate={handleUpdate} onClose={() => {

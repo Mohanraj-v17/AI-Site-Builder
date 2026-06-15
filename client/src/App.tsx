@@ -36,6 +36,7 @@ const App = () => {
         <Route path='/auth/:pathname'  element={<AuthPage />} />
         <Route path='/account/settings'  element={<Settings />} />
         <Route path='/loading' element={<Loading/>}/>
+        <Route path='/auth/:pathname' element={<AuthPage />} />
       </Routes>
     </div>
   )

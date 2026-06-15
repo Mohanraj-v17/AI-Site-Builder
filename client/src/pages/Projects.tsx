@@ -165,7 +165,7 @@ setIsGenerating(!data.project.current_code);
   </div>
 
   {/* DEVICE SWITCH */}
-  <div className='hidden sm:flex gap-2 bg-gray-950 p-1.5 rounded-md'>
+  <div className='flex gap-2 bg-gray-950 p-1.5 rounded-md'>
 
     <SmartphoneIcon
       onClick={() => setDevice('phone')}
@@ -195,7 +195,7 @@ setIsGenerating(!data.project.current_code);
 
 
   {/* RIGHT */}
-  <div className='flex items-center gap-3 flex-wrap'>
+  <div className='flex items-center gap-1 sm:gap-3 overflow-x-auto sm:overflow-visible'>
 
     {/* MOBILE MENU */}
     <div className='sm:hidden'>
@@ -210,18 +210,18 @@ setIsGenerating(!data.project.current_code);
           : (
             <MessagesSquareIcon
               onClick={() => setIsMenuOpen(true)}
-              className='size-6 cursor-pointer'
+              className='size-4 cursor-pointer'
             />
           )
       }
     </div>
+    
 
     {/* SAVE BUTTON */}
     <button
       onClick={saveProject}
       disabled={isSaving}
-      className='bg-gray-800 hover:bg-gray-700 text-white px-3.5 py-1.5 flex items-center gap-2 rounded border border-gray-700 transition'
-    >
+      className='bg-gray-800 hover:bg-gray-700 text-white px-2 sm:px-3.5 py-1 sm:py-1.5 flex items-center gap-1 sm:gap-2 rounded border border-gray-700 transition text-xs sm:text-sm shrink-0'    >
 
       {
         isSaving
@@ -237,7 +237,7 @@ setIsGenerating(!data.project.current_code);
     <Link
       target="_blank"
       to={`/preview/${projectId}`}
-      className='flex items-center gap-2 px-4 py-1.5 rounded border border-gray-700 hover:border-gray-500 transition'
+      className='flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-1 sm:py-1.5 rounded border border-gray-700 hover:border-gray-500 transition text-xs sm:text-sm shrink-0'
     >
 
       <FullscreenIcon size={16} />
@@ -249,7 +249,7 @@ setIsGenerating(!data.project.current_code);
     {/* DOWNLOAD BUTTON */}
     <button
       onClick={downloadCode}
-      className='bg-blue-700 hover:bg-blue-600 text-white px-3.5 py-1.5 flex items-center gap-2 rounded transition'
+      className='bg-blue-700 hover:bg-blue-600 text-white px-2 sm:px-3.5 py-1 sm:py-1.5 flex items-center gap-1 sm:gap-2 rounded transition text-xs sm:text-sm shrink-0'
     >
 
       <ArrowBigDownDashIcon size={16} />
@@ -261,7 +261,7 @@ setIsGenerating(!data.project.current_code);
     {/* PUBLISH BUTTON */}
     <button
       onClick={togglePublish}
-      className='bg-violet-700 hover:bg-violet-600 text-white px-3.5 py-1.5 flex items-center gap-2 rounded transition'
+      className='bg-violet-700 hover:bg-violet-600 text-white px-2 sm:px-3.5 py-1 sm:py-1.5 flex items-center gap-1 sm:gap-2 rounded transition text-xs sm:text-sm shrink-0'
     >
 
       {
@@ -283,7 +283,7 @@ setIsGenerating(!data.project.current_code);
 </div>
 
       {/* BODY */}
-      <div className='flex flex-1 overflow-hidden'>
+      <div className='flex flex-col sm:flex-row flex-1 overflow-hidden'>
 
         {/* SIDEBAR */}
         <Sidebar
