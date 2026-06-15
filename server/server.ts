@@ -10,8 +10,12 @@ import { stripeWebhook } from './controllers/stripeWebhook.js';
 const app = express();
 
 const corsOptions = {
-    origin: process.env.TRUSTED_ORIGINS?.split(',') || [],
-    credentials: true,
+ origin: [
+    ...(process.env.TRUSTED_ORIGINS?.split(',') || []),
+    "https://ai-site-builder-jet-five.vercel.app"
+  ],
+  credentials: true
+
 }
 
 // Middleware
