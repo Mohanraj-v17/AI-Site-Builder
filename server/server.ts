@@ -12,7 +12,7 @@ const app = express();
 const corsOptions = {
 origin: [
   "http://localhost:5173",
-  "https://ai-site-builder-ivory.vercel.app/", 
+  "https://ai-site-builder-ivory.vercel.app", 
 ],
 credentials: true
 
