@@ -7,13 +7,15 @@ import openai from "../config/openai.js";
 
 export const makeRevision = async (req: Request, res: Response) => {
     const userId = req.userId;
+    
 
     try {
-
+        
         const projectId = Array.isArray(req.params.projectId)
     ? req.params.projectId[0]
     : req.params.projectId;
         const { message } = req.body;
+        
 
         const user = await prisma.user.findUnique({
             where: { id: userId }
@@ -178,7 +180,7 @@ export const makeRevision = async (req: Request, res: Response) => {
 
     }
 }
-
+  
 export const rollbackToVersion = async (req: Request, res: Response) => {
     try{
         const userId = req.userId;

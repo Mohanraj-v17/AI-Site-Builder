@@ -35,10 +35,11 @@ const Preview = () => {
 
   
   
-  useEffect(() =>{
-    if(!isPending && session?.user)
-    fetchCode()
-  },[session?.user])
+  useEffect(() => {
+  if (!isPending) {
+    fetchCode();
+  }
+}, [isPending]);
 
   if(loading){
     return (
