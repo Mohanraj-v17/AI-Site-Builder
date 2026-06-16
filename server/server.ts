@@ -23,7 +23,7 @@ app.use(cors(corsOptions))
 app.post('/api/stripe', express.raw({type: 'application/json'}), stripeWebhook)
 app.use(express.json());
 
-app.all('/api/auth/*', toNodeHandler(auth));
+app.use('/api/auth', toNodeHandler(auth));
 app.use(express.json({limit: '50mb'}))
 
 const port = process.env.PORT || 3000;
