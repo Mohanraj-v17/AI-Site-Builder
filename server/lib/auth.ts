@@ -30,7 +30,7 @@ export const auth = betterAuth({
 
   trustedOrigins: [
     "http://localhost:5173",
-    "https://ai-site-builder-jet-five.vercel.app",
+    "https://ai-site-builder-ivory.vercel.app",
   ],
   
   
