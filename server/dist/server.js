@@ -1,0 +1,31 @@
+import 'dotenv/config';
+import express from 'express';
+import cors from "cors";
+import { auth } from './lib/auth.js';
+import { toNodeHandler } from 'better-auth/node';
+import userRouter from './routes/userRoutes.js';
+import projectRouter from './routes/projectRoutes.js';
+import { stripeWebhook } from './controllers/stripeWebhook.js';
+const app = express();
+const corsOptions = {
+    origin: [
+        "http://localhost:5173",
+        "https://ai-site-builder-jet-five.vercel.app",
+    ],
+    credentials: true
+};
+// Middleware
+app.use(cors(corsOptions));
+app.post('/api/stripe', express.raw({ type: 'application/json' }), stripeWebhook);
+app.use(express.json());
+app.all('/api/auth/{*any}', toNodeHandler(auth));
+app.use(express.json({ limit: '50mb' }));
+const port = process.env.PORT || 3000;
+app.get('/', (req, res) => {
+    res.send('Server is Live!');
+});
+app.use('/api/user', userRouter);
+app.use('/api/project', projectRouter);
+app.listen(port, () => {
+    console.log(`Server is running at 3000`);
+});
